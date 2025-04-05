@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tourism Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .overlay {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    }
+    .icon {
+      font-size: 2rem;
+    }
+    @keyframes fade-in {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.3s ease-out;
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans text-gray-800 relative">
+
+  <div class="overlay min-h-screen px-4 py-6">
+
+    <!-- Navbar -->
+    <nav class="bg-white/90 backdrop-blur-sm shadow-md rounded-xl px-6 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-extrabold text-blue-700 flex items-center gap-2">🌍 Tourism Dashboard</h1>
+      <div class="flex items-center gap-6">
+        <a href="/logout" class="text-red-600 hover:text-red-800 font-semibold transition">Logout</a>
+      </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section class="mt-10 text-center">
+      <h2 class="text-4xl font-bold text-gray-900 mb-3">Welcome, {{ session['username'] }}!</h2>
+      <p class="text-lg text-gray-700 mb-10">Start your journey with our tourism certifications ✈️</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
+        {% for cert in certificates %}
+        <a href="/certificate/{{ cert }}" class="card bg-white rounded-2xl p-6 shadow-lg text-center transition duration-300 hover:bg-blue-100">
+          <div class="text-blue-600 icon mb-2">📘</div>
+          <h3 class="text-xl font-semibold text-blue-800">{{ cert }}</h3>
+          <p class="text-sm text-gray-600 mt-2">Click to access study material, videos & quizzes</p>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-20 text-center text-gray-600 text-sm">
+      &copy; 2025 Tourism Education Platform. Explore the world through learning 🌏
+    </footer>
+  </div>
+
+  <!-- Floating Help Icon -->
+  <button onclick="openHelp()"
+    class="fixed bottom-6 right-6 z-40 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition transform hover:scale-110"
+    title="Get Help">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+      stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M2.25 12l8.954-8.955a.75.75 0 011.061 0L21.219 12M4.5 10.5v9.75A1.5 1.5 0 006 21.75h4.5v-6h3v6H18a1.5 1.5 0 001.5-1.5V10.5" />
+    </svg>
+  </button>
+
+  <!-- Help Modal -->
+  <div id="helpModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-2xl p-8 shadow-xl w-full max-w-md relative animate-fade-in">
+      <button onclick="closeHelp()" class="absolute top-2 right-3 text-gray-500 hover:text-red-500 text-xl">✖</button>
+      <h2 class="text-2xl font-bold text-blue-700 mb-4 text-center">Need Help?</h2>
+      <form class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium">Username</label>
+          <input type="text" placeholder="Enter your username" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-blue-400"/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Phone Number</label>
+          <input type="tel" placeholder="Enter your number" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-blue-400"/>
+        </div>
+        <div class="flex gap-4 mt-6 justify-center">
+          <button type="button" onclick="alert('Customer Care will contact you shortly!')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Customer Care</button>
+          <button type="button" onclick="alert('A Mentor will reach out to you!')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg">Mentor</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript to control modal -->
+  <script>
+    function openHelp() {
+      document.getElementById('helpModal').classList.remove('hidden');
+    }
+    function closeHelp() {
+      document.getElementById('helpModal').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
+
+

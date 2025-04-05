@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} | Certificate Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #cbe5f6, #fef6e4);
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #0d6efd;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .quiz-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+        }
+iv>
+</body>
+</html>
+        .quiz-link a {
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #ff6b6b;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .quiz-link a:hover {
+            background-color: #d93d3d;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>{{ name }}</h2>
+        <p>This course includes rich study material, expert video sessions, and practical knowledge on tourism and travel. Complete it to earn your certificate!</p>
+
+        <div class="quiz-link">
+            <a href="/quiz/{{ name }}">🎯 Take the Quiz</a>
+        </div>
+    </d
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} Course</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            padding: 40px;
+        }
+        .container {
+            background-color: rgba(0,0,0,0.6);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h2 {
+            color: #FFD700;
+            font-size: 36px;
+            text-align: center;
+        }
+        .section {
+            margin-top: 30px;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+        }
+        a.quiz-btn {
+            display: inline-block;
+            background-color: #26a69a;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        a.quiz-btn:hover {
+            background-color: #64ffda;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>{{ name }}</h2>
+
+        <div class="section">
+            <h3>📚 Study Material</h3>
+            <p>Download the <a href="#">study material PDF</a> to learn about {{ name }}.</p>
+        </div>
+
+        <div class="section">
+            <h3>🎬 Video Lecture</h3>
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+        </div>
+
+        <div class="section" style="text-align: center;">
+            <a href="/quiz/{{ name }}" class="quiz-btn">Start Quiz</a>
+        </div>
+    </div>
+</body>
+</html>

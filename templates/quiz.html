@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tourism Quiz</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            backdrop-filter: brightness(0.7);
+        }
+
+        .quiz-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px #ffd700;
+            animation: fadeIn 1s ease-in;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ffc107;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+        <h2>Quiz for {{ name }}</h2>
+        <form method="post">
+            <p><strong>Dummy Question:</strong> What is 5 + 5?</p>
+            <input type="text" name="answer" required><br>
+            <button type="submit">Submit Answer</button>
+        </form>
+    </div>
+</body>
+</html>                                                                                 
+
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate Result</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            backdrop-filter: brightness(0.7);
+        }
+
+        .certificate-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 30px #00e676;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: #00e676;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 20px;
+            background: #26a69a;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        a:hover {
+            background: #64ffda;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-box">
+        <h2>Congratulations {{ username }}!</h2>
+        <p>You have successfully completed the course:</p>
+        <h3 style="color: #ffc107;">{{ name }}</h3>
+        <a href="/download-certificate/{{ name }}">🎓 Download Certificate</a>
+        <a href="/dashboard">🏠 Back to Dashboard</a>
+    </div>
+</body>
+</html>        cer-res
