@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, s
 import sqlite3
 import os
 
-app = Flask(__name__)
+app = Flask(__name__)  # Corrected here
 app.secret_key = 'your_secret_key'  # Change this in production
 
 # Dummy course data
@@ -99,17 +99,16 @@ def quiz(name):
             return "Incorrect answer. Try again."
     return render_template('quiz.html', name=name)
 
-# Certificate Result Page
+# ✅ Certificate Result Page
 @app.route('/certificate-result/<name>')
 def certificate_result(name):
     if 'username' not in session:
         return redirect('/login')
     return render_template('certificate-result.html', name=name, username=session['username'])
 
-# Download Certificate (dummy file)
+# ✅ Certificate Download (Dummy)
 @app.route('/download-certificate/<name>')
 def download_certificate(name):
-    # Create a dummy file to simulate certificate download
     dummy_path = 'certificate.txt'
     with open(dummy_path, 'w') as f:
         f.write(f"Certificate of Completion\n\nThis is to certify that {session['username']} has completed the course: {name}.")
